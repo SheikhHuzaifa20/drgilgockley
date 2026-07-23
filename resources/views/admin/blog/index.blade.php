@@ -3,20 +3,20 @@
 @section('content')
 <div class="content-header row">
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block">Testimonial Management</h3>
+        <h3 class="content-header-title mb-0 d-inline-block">Blog Management</h3>
     </div>
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right">
-            @canAccess('delete_testimonial')
+            @canAccess('delete_blog')
                 <button id="bulkDelete" class="btn btn-danger mr-1 mb-1">Delete Selected</button>
             @endcanAccess
 
-            @canAccess('create_testimonial')
-                <a class="btn btn-info mb-1" href="{{ url('admin/testimonial/create') }}">Add Testimonial</a>
+            @canAccess('create_blog')
+                <a class="btn btn-info mb-1" href="{{ url('admin/blog/create') }}">Add Blog</a>
             @endcanAccess
 
-            @canAccess('view_trash_testimonial')
-                <a class="btn btn-warning ml-1 mb-1" href="{{ route('admin.testimonial.trash') }}">View Trashed Testimonials</a>
+            @canAccess('view_trash_blog')
+                <a class="btn btn-warning ml-1 mb-1" href="{{ route('admin.blog.trash') }}">View Trashed Blogs</a>
             @endcanAccess
         </div>
     </div>
@@ -27,7 +27,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Testimonial List</h4>
+                    <h4 class="card-title">Blog List</h4>
                 </div>
                 <div class="card-body card-dashboard">
                     <div class="row mb-4 align-items-end">
@@ -61,8 +61,7 @@
                                     <th class="select-all-col"><input type="checkbox" id="selectAll"></th>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Rating</th>
-                                    {{-- <th>Image</th> --}}
+                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Created At</th>
                                     <th class="text-center">Sort</th>
@@ -83,13 +82,13 @@
 $(function() {
     CRUDManager.init({
         tableSelector: '.yajra-datatable',
-        entity: 'testimonial',
+        entity: 'blog',
         routes: {
-            data: "{{ route('admin.testimonial.data') }}",
-            delete: "{{ route('admin.testimonial.destroy', ':id') }}",
-            toggleStatus: "{{ route('admin.testimonial.toggleStatus', ':id') }}",
-            bulkDelete: "{{ route('admin.testimonial.bulkDelete') }}",
-            sort: "{{ route('admin.testimonial.sort') }}"
+            data: "{{ route('admin.blog.data') }}",
+            delete: "{{ route('admin.blog.destroy', ':id') }}",
+            toggleStatus: "{{ route('admin.blog.toggleStatus', ':id') }}",
+            bulkDelete: "{{ route('admin.blog.bulkDelete') }}",
+            sort: "{{ route('admin.blog.sort') }}"
         },
         columns: [
             {
@@ -111,8 +110,7 @@ $(function() {
                 }
             },
             { data: 'title', name: 'title' },
-            { data: 'rating', name: 'rating', orderable: false, searchable: false },
-            // { data: 'image', name: 'image', orderable: false, searchable: false },
+            { data: 'image', name: 'image', orderable: false, searchable: false },
             { data: 'status', name: 'status', orderable: false, searchable: false },
             { data: 'created_at', name: 'created_at' },
             {

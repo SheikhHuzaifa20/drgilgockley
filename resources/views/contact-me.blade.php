@@ -1,5 +1,6 @@
-<?php include "layouts/app.php"; ?>
-<?php include "layouts/header.php"; ?>
+@extends('layouts.main')
+
+@section('content')
 
 <style>
     * {
@@ -59,7 +60,7 @@
 
         overflow: hidden;
 
-        background: url("assets/images/img-25873-1-scaled.webp");
+        background: url("{{asset('asset/images/img-25873-1-scaled.webp')}}");
         background-size: cover;
         background-position: center;
     }
@@ -266,12 +267,12 @@
                                     class="elementor elementor-54" data-elementor-post-type="page">
                                     <div class="elementor-element elementor-element-86040f0 e-flex e-con-boxed e-con e-parent lzl"
                                         data-id="86040f0" data-element_type="container" data-e-type="container"
-                                        data-settings='{"background_background":"slideshow","background_slideshow_gallery":[{"id":1372,"url":"assets/images/bgbgbg.png"}],"background_slideshow_loop":"yes","background_slideshow_slide_duration":5000,"background_slideshow_slide_transition":"fade","background_slideshow_transition_duration":500}'
+                                        data-settings='{"background_background":"slideshow","background_slideshow_gallery":[{"id":1372,"url":"{{asset('asset/images/bgbgbg.png')}}"}],"background_slideshow_loop":"yes","background_slideshow_slide_duration":5000,"background_slideshow_slide_transition":"fade","background_slideshow_transition_duration":500}'
                                         data-lzl-bg="">
                                         <div class="e-con-inner" style="justify-content: center !important;">
                                             <div class="elementor-element elementor-element-5e4838d elementor-widget elementor-widget-heading" data-id="5e4838d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" bis_skin_checked="1">
                                                 <div class="elementor-widget-container" bis_skin_checked="1">
-                                                    <h1 class="elementor-heading-title elementor-size-default" style="font-family: Allura; color: white;">Contact Me</h1>
+                                                    <h1 class="elementor-heading-title elementor-size-default" style="font-family: Allura; color: white;">{{ $page->name }}</h1>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,9 +290,7 @@
 
                                             <div class="contact-left">
                                                 <h1 class="allura">
-                                                    Feel Free To Get in
-                                                    <br>
-                                                    Touch
+                                                    {!! $page->content !!}
                                                 </h1>
                                             </div>
 
@@ -299,7 +298,7 @@
 
                                                 <form action="#">
 
-                                                    <h1 class="allura" style="color: white;">Send a Message</h1>
+                                                    <h1 class="allura" style="color: white;">{{ $section[0]->value }}</h1>
 
                                                     <div class="input-box">
                                                         <input type="text" placeholder="Name">
@@ -346,4 +345,4 @@
 </main>
 
 
-<?php include "layouts/footer.php"; ?>
+@endsection

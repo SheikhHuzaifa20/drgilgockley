@@ -1,1 +1,42 @@
-!function(e){"use strict";ElementsKit_Helper.registerWidget("elementskit-testimonial.default",(function(e){var t=e.find(".elementskit-testimonial-slider").data("config");t.arrows&&(t.navigation={prevEl:e.find(".swiper-button-prev").get(0),nextEl:e.find(".swiper-button-next").get(0)}),t.dots&&(t.pagination={el:e.find(".swiper-pagination").get(0),type:"bullets",clickable:!0});let n=e.find("."+elementorFrontend.config.swiperClass);ElementsKit_Helper.swiper(n,t).then((function(e){t.autoplay&&t.pauseOnHover&&n.hover((function(){e.autoplay.stop()}),(function(){e.autoplay.start()}))}))}))}(jQuery);
+(function($) {
+    "use strict";
+    
+    $(document).ready(function() {
+        $('.elementskit-testimonial-slider').each(function() {
+            let slider = $(this);
+            let config = slider.data('config');
+            
+            if (config) {
+                let swiperConfig = {
+                    loop: config.loop || true,
+                    speed: config.speed || 1000,
+                    slidesPerView: config.slidesPerView || 3,
+                    spaceBetween: config.spaceBetween || 15,
+                    autoplay: config.autoplay ? {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    } : false,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        1024: {
+                            slidesPerView: config.slidesPerView || 3,
+                            spaceBetween: config.spaceBetween || 15,
+                        }
+                    }
+                };
+                
+                let swiperContainer = slider.find('.swiper');
+                if (swiperContainer.length) {
+                    new Swiper(swiperContainer[0], swiperConfig);
+                }
+            }
+        });
+    });
+})(jQuery);

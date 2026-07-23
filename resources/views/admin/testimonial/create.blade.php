@@ -52,6 +52,12 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label for="text2">Text-2</label>
+                                                <input class="form-control" name="text2" type="text" id="text2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
                                                 <label for="summary-ckeditor">Description</label>
                                                 <textarea name="description" id="summary-ckeditor" cols="30" rows="10" class="form-control" required></textarea>
                                             </div>
@@ -71,10 +77,10 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="summary-ckeditor">Testimonial Image</label>
+                                                {{-- <label for="summary-ckeditor">Testimonial Image</label>
                                                 <div class="upload-photo">
-                                                    <input type="file" name="image" id="input-file-now" class="dropify" required />
-                                                </div>
+                                                    <input type="file" name="image" id="input-file-now" class="dropify"  />
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

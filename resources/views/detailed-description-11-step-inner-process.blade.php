@@ -1,5 +1,6 @@
-<?php include "layouts/app.php"; ?>
-<?php include "layouts/header.php"; ?>
+@extends('layouts.main')
+
+@section('content')
 
 <style>
     /* Premium Page Styling for Awaken Your Inner Self Blog */
@@ -48,7 +49,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('assets/images/blog-2-768x576.jpg') no-repeat center center;
+        background: url('{{asset('asset/images/blog-2-768x576.jpg')}}') no-repeat center center;
         background-size: cover;
         z-index: 1;
         transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -441,7 +442,7 @@
                                     class="elementor elementor-54" data-elementor-post-type="page">
                                     <div class="elementor-element elementor-element-86040f0 e-flex e-con-boxed e-con e-parent lzl"
                                         data-id="86040f0" data-element_type="container" data-e-type="container"
-                                        data-settings='{"background_background":"slideshow","background_slideshow_gallery":[{"id":1178,"url":"assets/images/img-25873-1-scaled.jpg"}],"background_slideshow_loop":"yes","background_slideshow_slide_duration":5000,"background_slideshow_slide_transition":"fade","background_slideshow_transition_duration":500}'
+                                        data-settings='{"background_background":"slideshow","background_slideshow_gallery":[{"id":1178,"url":"{{asset('asset/images/img-25873-1-scaled.jpg')}}"}],"background_slideshow_loop":"yes","background_slideshow_slide_duration":5000,"background_slideshow_slide_transition":"fade","background_slideshow_transition_duration":500}'
                                         data-lzl-bg="">
                                         <div class="e-con-inner" style="justify-content: center !important;">
                                             <div class="elementor-element elementor-element-5e4838d elementor-widget elementor-widget-heading" data-id="5e4838d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" bis_skin_checked="1">
@@ -471,7 +472,7 @@
                                                 <!-- Post Body Content -->
                                                 <div class="blog-content">
                                                     <h2 class="section-title">An Incredible Sequential, Integrated Inner Journey</h2>
-                                                    <p>Dr. Gockley’s 11-step inner journey to the heart—a comprehensive, sequential, and integrated inner process—is presented in <a href="about-the-book.php" style="color: pink; text-decoration: none;">Awaken Your Inner Self: Five Life-Changing Miracles</a> by <a href="about-the-author.php" style="color: pink; text-decoration: none;">Dr. Gil Gockley</a> . It is a complete portrayal of <b>The Art of Becoming More Fully Human</b>.</p>
+                                                    <p>Dr. Gockley’s 11-step inner journey to the heart—a comprehensive, sequential, and integrated inner process—is presented in <a href="{ url('/about-the-book') }" style="color: pink; text-decoration: none;">Awaken Your Inner Self: Five Life-Changing Miracles</a> by <a href="{ url('/about-the-author') }" style="color: pink; text-decoration: none;">Dr. Gil Gockley</a> . It is a complete portrayal of <b>The Art of Becoming More Fully Human</b>.</p>
 
                                                     <h2 class="section-title">Eleven Steps to Emotional and Spiritual Health and Happiness</h2>
                                                     <p>This inner process can be understood as a clear path with</p>
@@ -555,7 +556,7 @@
                                             <div class="sidebar-widget-container">
                                                 <!-- Profile Card -->
                                                 <div class="author-profile-widget">
-                                                    <img src="assets/images/54545-768x1024.png" alt="Dr. Gil Gockley" class="author-img">
+                                                    <img src="{{asset('asset/images/54545-768x1024.png')}}" alt="Dr. Gil Gockley" class="author-img">
                                                     <h4 class="author-name">Dr. Gil Gockley</h4>
                                                     <p class="author-bio">Dr. Gil Gockley holds an M.Ed. and a Doctorate in Counseling from the University of Rochester and a Certificate of Advanced Study in Educational Administration from SUNY Brockport.</p>
                                                 </div>
@@ -568,7 +569,7 @@
                                                 <div class="recent-posts-list">
                                                     <!-- Card 1 -->
                                                     <a href="https://www.walmart.com/ip/Awaken-your-Inner-Self-five-life-changing-miracles-Paperback-9781969570247/20205123598?classType=REGULAR&from=%2Fsearch&sid=11b79162-8807-49c0-b78d-0a387f79b4de" target="_blank" class="recent-post-card">
-                                                        <img src="assets/images/blog-6-768x576.webp" alt="Awareness Four" class="recent-post-img">
+                                                        <img src="{{asset('asset/images/blog-6-768x576.webp')}}" alt="Awareness Four" class="recent-post-img">
                                                         <div class="recent-post-info">
                                                             <h5 class="recent-post-title">Awareness Four – Acquiring A...</h5>
                                                             <p class="recent-post-excerpt">Awareness Four builds on everything that...</p>
@@ -577,7 +578,7 @@
 
                                                     <!-- Card 2 -->
                                                     <a href="https://www.walmart.com/ip/Awaken-your-Inner-Self-five-life-changing-miracles-Paperback-9781969570247/20205123598?classType=REGULAR&from=%2Fsearch&sid=11b79162-8807-49c0-b78d-0a387f79b4de" target="_blank" class="recent-post-card">
-                                                        <img src="assets/images/blog-5-768x576.webp" alt="Awareness Three" class="recent-post-img">
+                                                        <img src="{{asset('asset/images/blog-5-768x576.webp')}}" alt="Awareness Three" class="recent-post-img">
                                                         <div class="recent-post-info">
                                                             <h5 class="recent-post-title">Awareness Three – Strengthening Your...</h5>
                                                             <p class="recent-post-excerpt">Awareness Three focuses on what happens...</p>
@@ -586,7 +587,7 @@
 
                                                     <!-- Card 3 -->
                                                     <a href="https://www.walmart.com/ip/Awaken-your-Inner-Self-five-life-changing-miracles-Paperback-9781969570247/20205123598?classType=REGULAR&from=%2Fsearch&sid=11b79162-8807-49c0-b78d-0a387f79b4de" target="_blank" class="recent-post-card">
-                                                        <img src="assets/images/blog-4-768x576.webp" alt="Awareness Two" class="recent-post-img">
+                                                        <img src="{{asset('asset/images/blog-4-768x576.webp')}}" alt="Awareness Two" class="recent-post-img">
                                                         <div class="recent-post-info">
                                                             <h5 class="recent-post-title">Awareness Two – Connecting With...</h5>
                                                             <p class="recent-post-excerpt">Awareness Two is self-awareness, Step #4...</p>
@@ -619,4 +620,4 @@
 </main>
 
 
-<?php include "layouts/footer.php"; ?>
+@endsection

@@ -6,13 +6,13 @@
 
 <div class="content-header row">
     <div class="content-header-left col-md-12 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block">Edit Testimonial</h3>
+        <h3 class="content-header-title mb-0 d-inline-block">Edit Blog</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item" href="{{ url('admin/dashboard') }}">Home</li>
-                    <li class="breadcrumb-item"><a href="{{ url('admin/testimonial') }}">Testimonial Management</a></li>
-                    <li class="breadcrumb-item active">Edit Testimonial</li>
+                    <li class="breadcrumb-item"><a href="{{ url('admin/blog') }}">Blog Management</a></li>
+                    <li class="breadcrumb-item active">Edit Blog</li>
                 </ol>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title" id="basic-layout-form">Edit Testimonial Info</h4>
+                        <h4 class="card-title" id="basic-layout-form">Edit Blog Info</h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            <form class="form" enctype="multipart/form-data" method="post" action="{{ route('admin.testimonial.update', $testimonial->id) }}">
+                            <form class="form" enctype="multipart/form-data" method="post" action="{{ route('admin.blog.update', $blog->id) }}">
                                 @csrf
                                 @method('PATCH')
                                 <div class="form-body">
@@ -46,42 +46,23 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input class="form-control" required name="title" type="text" id="title" value="{{ $testimonial->title }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="text2">Text-2</label>
-                                                <input class="form-control" name="text2" type="text" id="text2" value="{{ $testimonial->text2 }}">
+                                                <input class="form-control" required name="title" type="text" id="title" value="{{ $blog->title }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="summary-ckeditor">Description</label>
-                                                <textarea name="description" id="summary-ckeditor" cols="30" rows="10" class="form-control" required>{{ $testimonial->description }}</textarea>
+                                                <textarea name="description" id="summary-ckeditor" cols="30" rows="10" class="form-control" required>{{ $blog->description }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="rating">Rating</label>
-                                                <select name="rating" id="rating" class="form-control" required>
-                                                    <option value="">-- Select Rating --</option>
-                                                    <option value="1" {{ $testimonial->rating == 1 ? 'selected' : '' }}>★☆☆☆☆ (1 Star)</option>
-                                                    <option value="2" {{ $testimonial->rating == 2 ? 'selected' : '' }}>★★☆☆☆ (2 Stars)</option>
-                                                    <option value="3" {{ $testimonial->rating == 3 ? 'selected' : '' }}>★★★☆☆ (3 Stars)</option>
-                                                    <option value="4" {{ $testimonial->rating == 4 ? 'selected' : '' }}>★★★★☆ (4 Stars)</option>
-                                                    <option value="5" {{ $testimonial->rating == 5 ? 'selected' : '' }}>★★★★★ (5 Stars)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{-- <label for="summary-ckeditor">Testimonial Image</label>
-                                                <img src="{{ asset($testimonial->image) }}" class="d-block" alt="" width="100%">
+                                                <label for="summary-ckeditor">Blog Image</label>
+                                                <img src="{{ asset($blog->image) }}" class="d-block" alt="" width="100%">
                                                 <br>
                                                 <div class="upload-photo">
                                                     <input type="file" name="image" id="input-file-now" class="dropify" />
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

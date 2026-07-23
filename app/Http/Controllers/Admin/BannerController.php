@@ -80,6 +80,7 @@ class BannerController extends Controller
     public function store(StoreBannerRequest $request)
     {
         $data = $request->validated();
+        $data['text2'] = $request->text2;
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'uploads/banner/', 'banner');
         }
@@ -104,6 +105,7 @@ class BannerController extends Controller
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
         $data = $request->validated();
+        $data['text2'] = $request->text2;
 
         $oldData = $banner->toArray();
 
