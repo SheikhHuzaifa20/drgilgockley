@@ -81,6 +81,7 @@ class BannerController extends Controller
     {
         $data = $request->validated();
         $data['text2'] = $request->text2;
+        $data['link'] = $request->link;
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'uploads/banner/', 'banner');
         }
@@ -106,6 +107,7 @@ class BannerController extends Controller
     {
         $data = $request->validated();
         $data['text2'] = $request->text2;
+        $data['link'] = $request->link;
 
         $oldData = $banner->toArray();
 

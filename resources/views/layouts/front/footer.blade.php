@@ -73,12 +73,19 @@
                             <h6 class="elementor-heading-title elementor-size-default">Contact Info</h6>
                         </div>
                     </div>
+                    
+                    @php
+                        $company_email = DB::table('m_flag')->where('id', 1)->first();
+                        $facebook = DB::table('m_flag')->where('id', 2)->first();
+                        $instagram = DB::table('m_flag')->where('id', 3)->first();
+                        $copyright = DB::table('m_flag')->where('id', 4)->first();
+                    @endphp
                     <div class="elementor-element elementor-element-661c44d6 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
                         data-id="661c44d6" data-element_type="widget" data-e-type="widget"
                         data-widget_type="icon-list.default">
                         <div class="elementor-widget-container">
                             <ul class="elementor-icon-list-items">
-                                <li class="elementor-icon-list-item"> <a href="mailto:drgilgockley@gmail.com">
+                                <li class="elementor-icon-list-item"> <a href="mailto:{{ $company_email->flag_value }}">
                                         <span class="elementor-icon-list-icon">
                                             <svg aria-hidden="true" class="e-font-icon-svg e-fas-envelope"
                                                 viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +93,7 @@
                                                     d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
                                                 </path>
                                             </svg> </span> <span
-                                            class="elementor-icon-list-text">drgilgockley@gmail.com</span> </a>
+                                            class="elementor-icon-list-text">{{ $company_email->flag_value }}</span> </a>
                                 </li>
                             </ul>
                         </div>
@@ -98,7 +105,7 @@
                             <div class="elementor-social-icons-wrapper elementor-grid" role="list"> <span
                                     class="elementor-grid-item" role="listitem">
                                     <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-grow elementor-repeater-item-0ae8d70"
-                                        href="https://www.facebook.com/drgilgockleyofficial/" target="_blank"
+                                        href="{{ $facebook->flag_value }}" target="_blank"
                                         data-lzl-clk-nodef="*"> <span class="elementor-screen-only">Facebook</span>
                                         <svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook"
                                             viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +115,7 @@
                                         </svg> </a>
                                 </span> <span class="elementor-grid-item" role="listitem">
                                     <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-af551dc"
-                                        href="https://www.instagram.com/dr.gilgockley/" target="_blank"
+                                        href="{{ $instagram->flag_value }}" target="_blank"
                                         data-lzl-clk-nodef="*"> <span class="elementor-screen-only">Instagram</span>
                                         <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram"
                                             viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -196,8 +203,7 @@
                         data-id="1e8d5b60" data-element_type="widget" data-e-type="widget"
                         data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default"> Copyright © 2026 Dr. Gil
-                                Gockley, All Right Reserved.</p>
+                            <p class="elementor-heading-title elementor-size-default"> {{ $copyright->flag_value }}</p>
                         </div>
                     </div>
                 </div>

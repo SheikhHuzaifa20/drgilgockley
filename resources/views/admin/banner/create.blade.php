@@ -68,6 +68,12 @@
                                                 </div>
                                               </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="link">Youtube Link</label>
+                                                <input class="form-control" name="link" type="text" id="link">
+                                            </div>
+                                        </div>
                                   </div>
                               </div>
                               <div class="form-actions text-right pb-0">

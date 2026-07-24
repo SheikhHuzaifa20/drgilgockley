@@ -44,6 +44,13 @@
                         </div>
                     </div>
                 </div>
+                @php
+                        $company_email = DB::table('m_flag')->where('id', 1)->first();
+                        $facebook = DB::table('m_flag')->where('id', 2)->first();
+                        $instagram = DB::table('m_flag')->where('id', 3)->first();
+                        $copyright = DB::table('m_flag')->where('id', 4)->first();
+                        $amazon = DB::table('m_flag')->where('id', 5)->first();
+                    @endphp
                 <div class="elementor-element elementor-element-d6be263 e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child"
                     data-id="d6be263" data-element_type="container" data-e-type="container">
                     <div class="elementor-element elementor-element-5749e0ee e-grid-align-right elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons"
@@ -53,7 +60,7 @@
                             <div class="elementor-social-icons-wrapper elementor-grid" role="list"> <span
                                     class="elementor-grid-item" role="listitem">
                                     <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-grow elementor-repeater-item-0ae8d70"
-                                        href="https://www.facebook.com/drgilgockleyofficial/" target="_blank"
+                                        href="{{ $facebook->flag_value }}" target="_blank"
                                         data-lzl-clk-nodef="*"> <span class="elementor-screen-only">Facebook</span> <svg
                                             aria-hidden="true" class="e-font-icon-svg e-fab-facebook"
                                             viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +70,7 @@
                                         </svg> </a>
                                 </span> <span class="elementor-grid-item" role="listitem">
                                     <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-af551dc"
-                                        href="https://www.instagram.com/dr.gilgockley/" target="_blank"
+                                        href="{{ $instagram->flag_value }}" target="_blank"
                                         data-lzl-clk-nodef="*"> <span class="elementor-screen-only">Instagram</span>
                                         <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram"
                                             viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +175,7 @@
                     <div class="elementor-widget-container">
                         <div class="elementor-button-wrapper"> <a
                                 class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                                href="https://www.amazon.com/-/zh_TW/Dr-Gil-Gockley/dp/B0FST8QK97?language=en_US"
+                                href="{{ $amazon->flag_value }}"
                                 target="_blank"> <span class="elementor-button-content-wrapper">
                                     <span class="elementor-button-icon">
                                         <svg aria-hidden="true" class="e-font-icon-svg e-fab-amazon"

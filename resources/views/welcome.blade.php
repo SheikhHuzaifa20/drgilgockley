@@ -173,7 +173,7 @@
                                                                                                             <div
                                                                                                                 class="elementor-button-wrapper">
                                                                                                                 <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                                                                                                                    href="https://www.youtube.com/@gilgockley1816"
+                                                                                                                    href="{{ $banner->link }}"
                                                                                                                     target="_blank">
                                                                                                                     <span
                                                                                                                         class="elementor-button-content-wrapper">
