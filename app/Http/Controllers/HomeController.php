@@ -8,6 +8,7 @@ use App\schedule;
 use App\newsletter;
 use App\post;
 use App\banner;
+use App\Models\Blog;
 use App\imagetable;
 use DB;
 use Mail;
@@ -83,7 +84,21 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view('blogs');
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
+        return view('blogs', compact('blogs'));
+    }
+
+    public function blog_detail($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $recentBlogs = Blog::orderBy('created_at', 'desc')->limit(3)->get();
+        return view('blog_detail', compact('blog', 'recentBlogs'));
+    }
+
+    public function show($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('blog-detail', compact('blog'));
     }
 
     public function contact()

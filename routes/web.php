@@ -114,6 +114,7 @@ Route::get('contact','HomeController@contact')->name('contact');
 Route::get('about','HomeController@about')->name('about');
 Route::get('book','HomeController@book')->name('book');
 Route::get('blog','HomeController@blog')->name('blog');
+Route::get('/blog-detail/{id}', 'HomeController@blog_detail')->name('blog.detail');
 Route::get('contact','HomeController@contact')->name('contact');
 
 
