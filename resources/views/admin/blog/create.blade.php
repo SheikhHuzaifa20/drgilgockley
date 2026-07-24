@@ -4,6 +4,17 @@
     <link rel="stylesheet" href="{{ asset('plugins/vendors/dropify/dist/css/dropify.min.css') }}">
 @endpush
 
+@push('css')
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+        .ck-editor__editable {
+            min-height: 200px;
+        }
+    </style>
+@endpush
+
 @section('content')
 
     <div class="content-header row">
@@ -41,7 +52,7 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <form class="form" enctype="multipart/form-data" method="post"
-                                    action="{{ route('admin.blog.store') }}">
+                                    action="{{ route('admin.blog.store') }}" id="blogForm">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -60,7 +71,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="summary-ckeditor">Blog Image</label>
+                                                    <label>Blog Image</label>
                                                     <div class="upload-photo">
                                                         <input type="file" name="image" id="input-file-now"
                                                             class="dropify" required />
@@ -73,7 +84,7 @@
                                                 <div class="form-group">
                                                     <label>Inner Page Content <span class="text-danger">*</span></label>
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio"
                                                                     name="inner_type" id="inner_desc_radio"
@@ -90,13 +101,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- Description Input -->
+                                                    <!-- Description Input with CKEditor (using summary-ckeditor2 ID) -->
                                                     <div id="inner_desc_wrapper">
-                                                        <textarea name="inner_desc" id="inner_desc" cols="30" rows="10" class="form-control"
+                                                        <textarea name="inner_desc" id="summary-ckeditor2" cols="30" rows="10" class="form-control"
                                                             placeholder="Enter inner page description"></textarea>
                                                     </div>
 
-                                                    <!-- Link Input -->
+                                                    <!-- Link Input (normal input) -->
                                                     <div id="inner_link_wrapper" style="display: none;">
                                                         <input type="url" name="link" id="inner_link"
                                                             class="form-control"
@@ -114,8 +125,6 @@
                                         </button>
                                     </div>
                                 </form>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -159,45 +168,46 @@
             </div>
         </section>
     </div>
+
+    @push('js')
+        <script src="{{ asset('plugins/vendors/dropify/dist/js/dropify.min.js') }}"></script>
+        <script>
+            $(function() {
+                $('.dropify').dropify();
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const descRadio = document.getElementById('inner_desc_radio');
+                const linkRadio = document.getElementById('inner_link_radio');
+                const descWrapper = document.getElementById('inner_desc_wrapper');
+                const linkWrapper = document.getElementById('inner_link_wrapper');
+                const descTextarea = document.getElementById('summary-ckeditor2');
+                const linkInput = document.getElementById('inner_link');
+
+                function toggleInputs() {
+                    if (descRadio.checked) {
+                        descWrapper.style.display = 'block';
+                        linkWrapper.style.display = 'none';
+                        descTextarea.required = true;
+                        linkInput.required = false;
+                        linkInput.value = '';
+                    } else {
+                        descWrapper.style.display = 'none';
+                        linkWrapper.style.display = 'block';
+                        descTextarea.required = false;
+                        linkInput.required = true;
+                        descTextarea.value = '';
+                    }
+                }
+
+                descRadio.addEventListener('change', toggleInputs);
+                linkRadio.addEventListener('change', toggleInputs);
+
+                // Initialize
+                toggleInputs();
+            });
+        </script>
+    @endpush
 @endsection
-
-@push('js')
-    <script src="{{ asset('plugins/vendors/dropify/dist/js/dropify.min.js') }}"></script>
-    <script>
-        $(function() {
-            $('.dropify').dropify();
-        });
-    </script>
-    <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        const descRadio = document.getElementById('inner_desc_radio');
-                                        const linkRadio = document.getElementById('inner_link_radio');
-                                        const descWrapper = document.getElementById('inner_desc_wrapper');
-                                        const linkWrapper = document.getElementById('inner_link_wrapper');
-                                        const descTextarea = document.getElementById('inner_desc');
-                                        const linkInput = document.getElementById('inner_link');
-
-                                        function toggleInputs() {
-                                            if (descRadio.checked) {
-                                                descWrapper.style.display = 'block';
-                                                linkWrapper.style.display = 'none';
-                                                descTextarea.required = true;
-                                                linkInput.required = false;
-                                                linkInput.value = '';
-                                            } else {
-                                                descWrapper.style.display = 'none';
-                                                linkWrapper.style.display = 'block';
-                                                descTextarea.required = false;
-                                                linkInput.required = true;
-                                                descTextarea.value = '';
-                                            }
-                                        }
-
-                                        descRadio.addEventListener('change', toggleInputs);
-                                        linkRadio.addEventListener('change', toggleInputs);
-
-                                        // Initialize
-                                        toggleInputs();
-                                    });
-                                </script>
-@endpush

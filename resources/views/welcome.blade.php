@@ -6,12 +6,16 @@
 
 @section('css')
     <style>
-        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-tootltip-testimonial .elementskit-commentor-content, .elementor-54 .elementor-element.elementor-element-31128012 .ekit-main-swiper .elementskit-single-testimonial-slider, .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-testimonial_card {
+        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-tootltip-testimonial .elementskit-commentor-content,
+        .elementor-54 .elementor-element.elementor-element-31128012 .ekit-main-swiper .elementskit-single-testimonial-slider,
+        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-testimonial_card {
             margin-left: 10px;
             margin-right: 10px;
             height: 350px;
         }
-        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-single-testimonial-slider .elementskit-commentor-content>p, .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-testimonial_card .elementskit-commentor-coment {
+
+        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-single-testimonial-slider .elementskit-commentor-content>p,
+        .elementor-54 .elementor-element.elementor-element-31128012 .elementskit-testimonial_card .elementskit-commentor-coment {
             font-family: "Poppins", Sans-serif;
             font-weight: 400;
             font-style: italic;
@@ -995,132 +999,79 @@
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid"
                                                         role="list">
-                                                        <article
-                                                            class="elementor-post elementor-grid-item post-994 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs"
-                                                            role="listitem">
-                                                            <div class="elementor-post__card"> <a
-                                                                    class="elementor-post__thumbnail__link"
-                                                                    href="awaken-inner-self-11-step-journey.php"
-                                                                    tabindex="-1">
-                                                                    <div class="elementor-post__thumbnail"><img
-                                                                            loading="lazy" decoding="async"
-                                                                            width="800" height="600"
-                                                                            class="attachment-full size-full wp-image-1353 lzl"
-                                                                            alt="Awaken Your Inner Self: An 11-Step Journey and Five Life-Changing Miracles"
-                                                                            sizes="(max-width: 800px) 100vw, 800px"
-                                                                            srcset="{{ asset('asset/images/blog-1.jpg') }} 800w, {{ asset('asset/images/blog-1-300x225.jpg') }} 300w, {{ asset('asset/images/blog-1-768x576.jpg') }} 768w"
-                                                                            src="{{ asset('asset/images/blog-1.jpg') }}">
-                                                                    </div>
-                                                                </a>
-                                                                <div class="elementor-post__badge">Blogs</div>
-                                                                <div class="elementor-post__text">
-                                                                    <h3 class="elementor-post__title"> <a
-                                                                            href="awaken-inner-self-11-step-journey.php">
-                                                                            Awaken Your Inner Self: An 11-Step
-                                                                            Journey and Five Life-Changing
-                                                                            Miracles </a> </h3>
-                                                                    <div class="elementor-post__excerpt">
-                                                                        <p>Awaken your Inner Self: Five
-                                                                            life-changing miracles is presented
-                                                                            as an 11-step inner journey. The
-                                                                            steps are meant to be</p>
-                                                                    </div> <a class="elementor-post__read-more"
-                                                                        href="awaken-inner-self-11-step-journey.php"
-                                                                        aria-label="Read more about Awaken Your Inner Self: An 11-Step Journey and Five Life-Changing Miracles"
+                                                        @php
+                                                            $latestBlogs = App\Models\Blog::orderBy('created_at', 'asc')
+                                                                ->limit(3)
+                                                                ->get();
+                                                        @endphp
+
+                                                        @forelse($latestBlogs as $blog)
+                                                            <article
+                                                                class="elementor-post elementor-grid-item post-{{ $blog->id }} post type-post status-publish format-standard has-post-thumbnail hentry category-blogs"
+                                                                role="listitem">
+                                                                <div class="elementor-post__card">
+                                                                    <!-- Blog Image Link -->
+                                                                    <a class="elementor-post__thumbnail__link"
+                                                                        href="{{ $blog->link ? $blog->link : route('blog.detail', $blog->id) }}"
+                                                                        {{ $blog->link ? 'target="_blank"' : '' }}
                                                                         tabindex="-1">
-                                                                        Read More » </a>
-                                                                </div>
-                                                                <div class="elementor-post__meta-data"> <span
-                                                                        class="elementor-post-date">
-                                                                        February 18, 2026 </span> <span
-                                                                        class="elementor-post-avatar">
-                                                                        No Comments </span> </div>
-                                                            </div>
-                                                        </article>
-                                                        <article
-                                                            class="elementor-post elementor-grid-item post-995 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs"
-                                                            role="listitem">
-                                                            <div class="elementor-post__card"> <a
-                                                                    class="elementor-post__thumbnail__link"
-                                                                    href="detailed-description-11-step-inner-process.php"
-                                                                    tabindex="-1">
-                                                                    <div class="elementor-post__thumbnail"><img
-                                                                            loading="lazy" decoding="async"
-                                                                            width="800" height="600"
-                                                                            class="attachment-full size-full wp-image-1354 lzl"
-                                                                            alt="Emotional and Spiritual Growth"
-                                                                            sizes="(max-width: 800px) 100vw, 800px"
-                                                                            srcset="{{ asset('asset/images/blog-2.jpg') }} 800w, {{ asset('asset/images/blog-2-300x225.jpg') }} 300w, {{ asset('asset/images/blog-2-768x576.jpg') }} 768w"
-                                                                            src="{{ asset('asset/images/blog-2.jpg') }}">
+                                                                        <div class="elementor-post__thumbnail">
+                                                                            <img loading="lazy" decoding="async"
+                                                                                width="800" height="600"
+                                                                                class="attachment-full size-full wp-image-1353 lzl"
+                                                                                alt="{{ $blog->title }}"
+                                                                                sizes="(max-width: 800px) 100vw, 800px"
+                                                                                srcset="{{ asset($blog->image) }} 800w"
+                                                                                src="{{ asset($blog->image) }}"
+                                                                                onerror="this.src='{{ asset('asset/images/default-blog.jpg') }}'">
+                                                                        </div>
+                                                                    </a>
+
+                                                                    <div class="elementor-post__badge">Blogs</div>
+
+                                                                    <div class="elementor-post__text">
+                                                                        <!-- Blog Title -->
+                                                                        <h3 class="elementor-post__title">
+                                                                            <a href="{{ $blog->link ? $blog->link : route('blog.detail', $blog->id) }}"
+                                                                                {{ $blog->link ? 'target="_blank"' : '' }}>
+                                                                                {{ $blog->title }}
+                                                                            </a>
+                                                                        </h3>
+
+                                                                        <!-- Blog Description -->
+                                                                        <div class="elementor-post__excerpt">
+                                                                            <p>{{ \Str::limit(strip_tags($blog->description), 120, '...') }}
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <!-- Read More Button -->
+                                                                        <a class="elementor-post__read-more"
+                                                                            href="{{ $blog->link ? $blog->link : route('blog.detail', $blog->id) }}"
+                                                                            {{ $blog->link ? 'target="_blank"' : '' }}
+                                                                            aria-label="Read more about {{ $blog->title }}"
+                                                                            tabindex="-1">
+                                                                            Read More @if ($blog->link)
+                                                                                <i
+                                                                                    class="fas fa-external-link-alt"></i>
+                                                                            @endif »
+                                                                        </a>
                                                                     </div>
-                                                                </a>
-                                                                <div class="elementor-post__badge">Blogs</div>
-                                                                <div class="elementor-post__text">
-                                                                    <h3 class="elementor-post__title"> <a
-                                                                            href="detailed-description-11-step-inner-process.php">
-                                                                            A More Detailed Description of My
-                                                                            11-Step Inner Process </a> </h3>
-                                                                    <div class="elementor-post__excerpt">
-                                                                        <p>An Incredible Sequential, Integrated
-                                                                            Inner Journey Dr. Gockley’s 11-step
-                                                                            inner journey to the heart—a
-                                                                            comprehensive, sequential, and
-                                                                            integrated inner process—is</p>
-                                                                    </div> <a class="elementor-post__read-more"
-                                                                        href="detailed-description-11-step-inner-process.php"
-                                                                        aria-label="Read more about A More Detailed Description of My 11-Step Inner Process"
-                                                                        tabindex="-1">
-                                                                        Read More » </a>
-                                                                </div>
-                                                                <div class="elementor-post__meta-data"> <span
-                                                                        class="elementor-post-date">
-                                                                        February 18, 2026 </span> <span
-                                                                        class="elementor-post-avatar">
-                                                                        No Comments </span> </div>
-                                                            </div>
-                                                        </article>
-                                                        <article
-                                                            class="elementor-post elementor-grid-item post-996 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs"
-                                                            role="listitem">
-                                                            <div class="elementor-post__card"> <a
-                                                                    class="elementor-post__thumbnail__link"
-                                                                    href="awareness-one-be-aware-of-your-feelings-steps.php"
-                                                                    tabindex="-1">
-                                                                    <div class="elementor-post__thumbnail"><img
-                                                                            loading="lazy" decoding="async"
-                                                                            width="800" height="600"
-                                                                            class="attachment-full size-full wp-image-1355 lzl"
-                                                                            alt="Aware of Your Feelings"
-                                                                            sizes="(max-width: 800px) 100vw, 800px"
-                                                                            srcset="{{ asset('asset/images/blog-3.jpg') }} 800w, {{ asset('asset/images/blog-3-300x225.jpg') }} 300w, {{ asset('asset/images/blog-3-768x576.jpg') }} 768w"
-                                                                            src="{{ asset('asset/images/blog-3.jpg') }}">
+
+                                                                    <div class="elementor-post__meta-data">
+                                                                        <span class="elementor-post-date">
+                                                                            {{ $blog->created_at->format('F d, Y') }}
+                                                                        </span>
+                                                                        <span class="elementor-post-avatar">
+                                                                            No Comments
+                                                                        </span>
                                                                     </div>
-                                                                </a>
-                                                                <div class="elementor-post__badge">Blogs</div>
-                                                                <div class="elementor-post__text">
-                                                                    <h3 class="elementor-post__title"> <a
-                                                                            href="awareness-one-be-aware-of-your-feelings-steps.php">
-                                                                            Awareness One — Be Aware of Your
-                                                                            Feelings (Steps 1–3) </a> </h3>
-                                                                    <div class="elementor-post__excerpt">
-                                                                        <p>Awareness One is the beginning of
-                                                                            self-awareness: Steps #1 through #3
-                                                                            of the 11-step inner process. It’s
-                                                                            where the journey starts—because
-                                                                            your</p>
-                                                                    </div> <a class="elementor-post__read-more"
-                                                                        href="awareness-one-be-aware-of-your-feelings-steps.php"
-                                                                        aria-label="Read more about Awareness One — Be Aware of Your Feelings (Steps 1–3)"
-                                                                        tabindex="-1">
-                                                                        Read More » </a>
                                                                 </div>
-                                                                <div class="elementor-post__meta-data"> <span
-                                                                        class="elementor-post-date">
-                                                                        February 18, 2026 </span> <span
-                                                                        class="elementor-post-avatar">
-                                                                        No Comments </span> </div>
+                                                            </article>
+                                                        @empty
+                                                            <div class="col-12 text-center py-5">
+                                                                <p>No blogs found.</p>
                                                             </div>
-                                                        </article>
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                             </div>
