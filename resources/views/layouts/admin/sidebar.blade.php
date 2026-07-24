@@ -18,13 +18,13 @@
                     </li>
 
                     {{-- Permission Management --}}
-                    @canAccess('manage_permissions')
+                    {{-- @canAccess('manage_permissions')
                         <li class="{{ request()->routeIs('admin.permissions.*') ? 'active' : '' }}">
                             <a class="menu-item" href="{{ route('admin.permissions.index') }}">
                                 <i></i><span>Permission Management</span>
                             </a>
                         </li>
-                    @endcanAccess
+                    @endcanAccess --}}
 
                     {{-- Favicon Management --}}
                     @canAccess('view_favicon')
@@ -87,11 +87,11 @@
                             <span>Contact Inquiries</span>
                         </a>
                     </li>
-                    <li class="{{ request()->routeIs('admin.newsletter.inquiries*') ? 'active' : '' }}">
+                    {{-- <li class="{{ request()->routeIs('admin.newsletter.inquiries*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.newsletter.inquiries') }}"><i></i>
                             <span>Newsletter Inquiries</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
@@ -111,18 +111,18 @@
             <li class="nav-item">
                 <a href="javascript:;"><i class="la la-shopping-cart"></i><span class="menu-title">Ecommerce</span></a>
                 <ul class="menu-content">
-                    <li class="{{ request()->routeIs('admin.attribute.*') ? 'active' : '' }}">
+                    {{-- <li class="{{ request()->routeIs('admin.attribute.*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.attribute.index') }}"><i></i><span>Attributes</span></a>
-                    </li>
-                    <li class="{{ request()->routeIs('admin.attributesvalue.*') ? 'active' : '' }}">
+                    </li> --}}
+                    {{-- <li class="{{ request()->routeIs('admin.attributesvalue.*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.attributesvalue.index') }}"><i></i><span>Attribute Values</span></a>
-                    </li>
-                    <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
+                    </li> --}}
+                    {{-- <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.category.index') }}"><i></i><span>Categories</span></a>
-                    </li>
-                    <li class="{{ request()->routeIs('admin.subcategory*') ? 'active' : '' }}">
+                    </li> --}}
+                    {{-- <li class="{{ request()->routeIs('admin.subcategory*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.subcategory.index') }}"><i></i><span>SubCategories</span></a>
-                    </li>
+                    </li> --}}
                     <li class="{{ request()->routeIs('admin.product*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.product.index') }}"><i></i><span>Products</span></a>
                     </li>
@@ -143,14 +143,14 @@
             @endcanAccess
 
             {{-- Activity --}}
-            @canAccess('view_activity')
+            {{-- @canAccess('view_activity')
             <li class="nav-item {{ request()->routeIs('admin.activity.logs.*') ? 'active' : '' }}">
                 <a href="{{ route('admin.activity.logs.index') }}">
                     <i class="la la-cube"></i>
                     <span class="menu-title">Activity Logs</span>
                 </a>
             </li>
-            @endcanAccess
+            @endcanAccess --}}
 
             
 {{-- Blog --}}
