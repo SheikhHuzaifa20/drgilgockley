@@ -108,9 +108,9 @@
             </li>
 
             {{-- Ecommerce --}}
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="javascript:;"><i class="la la-shopping-cart"></i><span class="menu-title">Ecommerce</span></a>
-                <ul class="menu-content">
+                <ul class="menu-content"> --}}
                     {{-- <li class="{{ request()->routeIs('admin.attribute.*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.attribute.index') }}"><i></i><span>Attributes</span></a>
                     </li> --}}
@@ -123,14 +123,14 @@
                     {{-- <li class="{{ request()->routeIs('admin.subcategory*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.subcategory.index') }}"><i></i><span>SubCategories</span></a>
                     </li> --}}
-                    <li class="{{ request()->routeIs('admin.product*') ? 'active' : '' }}">
+                    {{-- <li class="{{ request()->routeIs('admin.product*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.product.index') }}"><i></i><span>Products</span></a>
-                    </li>
-                    <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}">
+                    </li> --}}
+                    {{-- <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('admin.orders.index') }}"><i></i><span>Orders</span></a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             {{-- Testimonial --}}
             @canAccess('view_testimonial')
